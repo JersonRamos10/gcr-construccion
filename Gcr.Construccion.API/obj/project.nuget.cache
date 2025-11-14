@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "h7vfgSK4TPA=",
+  "success": true,
+  "projectFilePath": "C:\\gcr-construccion\\Gcr.Construccion.API\\Gcr.Construccion.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jerso\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "C:\\Users\\jerso\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
