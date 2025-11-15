@@ -1,6 +1,6 @@
 namespace Gcr.Construccion.API.Entities
 {
-    public class Ingreso()
+    public class Ingreso
     {  //modelo de datos 
         public int Id { get; set; }
 
