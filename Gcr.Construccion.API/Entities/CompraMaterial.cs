@@ -1,6 +1,6 @@
 namespace Gcr.Construccion.API.Entities
 {
-    
+
     public class CompraMaterial
     {
         public int Id { get; set; }
@@ -14,10 +14,14 @@ namespace Gcr.Construccion.API.Entities
         public DateTime FechaCompra { get; set; }
 
         public decimal MontoTotal { get; set; }
-        
+
         //clave foreanea hace la relacion entre tablas
         public int CategoriaId { get; set; }
 
         public CategoriaMaterial Categoria { get; set; } = null!;
+
+        public int ProveedorId { get; set; }
+
+        public Proveedor Proveedor { get; set; } = null!;
     }
 }

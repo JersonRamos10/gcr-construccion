@@ -10,8 +10,6 @@ namespace Gcr.Construccion.API.Entities
 
         public string Direccion { get; set; }
 
-        public int CompraMaterialId { get; set; }
-
-        public Proveedor Proveedores { get; set; }
+        public ICollection<CompraMaterial> CompraMateriales { get; set;}  = new HashSet<CompraMaterial>();
     }
 }

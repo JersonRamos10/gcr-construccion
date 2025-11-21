@@ -212,3 +212,5 @@ C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\runtimes\win-arm64\na
 C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
+C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\AutoMapper.dll
+C:\gcr-construccion\Gcr.Construccion.API\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

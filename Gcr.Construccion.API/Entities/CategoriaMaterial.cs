@@ -10,7 +10,7 @@ namespace Gcr.Construccion.API.Entities
         //RELACION CON LA tabla de compras de nateriales 1 -> M
         public ICollection<CompraMaterial> CompraMateriales { get; set; } = new HashSet<CompraMaterial>();
 
-        public ICollection<Proveedor> Proveedores { get; set; } = new HashSet<Proveedor>();
+        
 
     }
 }
