@@ -7,33 +7,35 @@ using Gcr.Construccion.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+// Configuración de Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-//conexion a la base de datos SQL SERVERS
-
+// Conexión a la base de datos SQL SERVER
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-//Aautomapper
-
+// Automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 builder.Services.AddAutoMapper(typeof(IngresoProfile));
 
-//inyeccion de dependencias de los servicios
+// Inyección de dependencias de los servicios
 builder.Services.AddScoped<IIngresoService, IngresoService>();
 
+// Registrar controladores
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuración del pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
+app.MapControllers();
 
 app.Run();
