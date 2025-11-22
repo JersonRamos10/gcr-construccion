@@ -4,6 +4,7 @@ using Gcr.Construccion.API.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Gcr.Construccion.API.Interfaces;
 using Gcr.Construccion.API.Services;
+using grc.Construccion.API.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAutoMapper(typeof(IngresoProfile));
 
+builder.Services.AddAutoMapper(typeof(ProveedorProfile));
+
 // Inyección de dependencias de los servicios
 builder.Services.AddScoped<IIngresoService, IngresoService>();
+builder.Services.AddScoped<IProveedorService, ProveedorService>();
 
 // Registrar controladores
 builder.Services.AddControllers();

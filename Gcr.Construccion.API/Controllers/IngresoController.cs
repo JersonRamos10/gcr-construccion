@@ -29,7 +29,7 @@ namespace Gcr.Construccion.API.Controllers
 
         // para obtener un ingreso por id peticion: GET api/ingreso/{id}
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetIngreso(int id)
+        public async Task<IActionResult> GetIngresoById(int id)
         {
             var ingreso = await _ingresoService.GetByIdAsync(id);
 
@@ -43,11 +43,11 @@ namespace Gcr.Construccion.API.Controllers
 
         // para crear un nuevo ingreso peticion: POST api/ingreso
         [HttpPost]
-        public async Task<IActionResult> PostIngreso([FromBody] IngresoCreateDto dto)
+        public async Task<IActionResult> CreateIngreso([FromBody] IngresoCreateDto dto)
         {
             var ingreso = await _ingresoService.CreateAsync(dto);
 
-            return CreatedAtAction(nameof(GetIngreso), new { id = ingreso.Id }, ingreso);
+            return CreatedAtAction(nameof(GetIngresoById), new { id = ingreso.Id }, ingreso);
         }
 
         //delete de ingreso peticion: DELETE api/ingreso/{id}
