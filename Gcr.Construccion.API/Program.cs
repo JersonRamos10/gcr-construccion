@@ -27,6 +27,7 @@ builder.Services.AddScoped<IIngresoService, IngresoService>();
 builder.Services.AddScoped<IProveedorService, ProveedorService>();
 builder.Services.AddScoped<ICategoriaMaterialService, CategoriaMaterialService>();
 builder.Services.AddScoped<ICompraMaterialService, CompraMaterialService>();
+builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 
 // Registrar controladores
 builder.Services.AddControllers();

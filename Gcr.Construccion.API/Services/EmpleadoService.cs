@@ -43,7 +43,7 @@ namespace Gcr.Construccion.API.Services
         public async Task<EmpleadoDto> CreateAsync(EmpleadoCreateDto dto)
         {
             // Validaciones básicas
-            if (string.IsNullOrWhiteSpace(dto.Nombre))
+            if (string.IsNullOrWhiteSpace(dto.NombreCompleto))
                 throw new ArgumentException("El nombre del empleado es obligatorio.");
 
             if (dto.PagoPorDia <= 0)
@@ -66,7 +66,7 @@ namespace Gcr.Construccion.API.Services
                 return false;
 
             // Validaciones básicas
-            if (string.IsNullOrWhiteSpace(dto.Nombre))
+            if (string.IsNullOrWhiteSpace(dto.NombreCompleto))
                 throw new ArgumentException("El nombre del empleado es obligatorio.");
 
             if (dto.PagoPorDia <= 0)

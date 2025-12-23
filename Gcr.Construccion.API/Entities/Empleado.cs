@@ -4,7 +4,7 @@ namespace Gcr.Construccion.API.Entities
 
         public int Id { get; set; }
 
-        public string NombreCompleto { get; set; } = null!;
+        public string? NombreCompleto { get; set; }
 
         public decimal PagoPorDia { get; set; }
 
