@@ -4,7 +4,7 @@ namespace Gcr.Construccion.API.Entities
     {  //modelo de datos 
         public int Id { get; set; }
 
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
 
         public decimal Monto { get; set; }
 

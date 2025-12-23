@@ -26,6 +26,7 @@ builder.Services.AddAutoMapper(typeof(ProveedorProfile));
 builder.Services.AddScoped<IIngresoService, IngresoService>();
 builder.Services.AddScoped<IProveedorService, ProveedorService>();
 builder.Services.AddScoped<ICategoriaMaterialService, CategoriaMaterialService>();
+builder.Services.AddScoped<ICompraMaterialService, CompraMaterialService>();
 
 // Registrar controladores
 builder.Services.AddControllers();
