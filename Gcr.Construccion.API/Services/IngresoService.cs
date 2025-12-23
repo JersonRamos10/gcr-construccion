@@ -20,19 +20,55 @@ namespace Gcr.Construccion.API.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<IngresoDto>> GetAllAsync()
+        public async Task<PagedResultDto<IngresoDto>> GetAllAsync(
+            int page,
+            int pageSize,
+            DateTime? fromDate,
+            DateTime? toDate
+        )
         {
+            // Seguridad básica
+            if (page <= 0) page = 1;
+            if (pageSize <= 0) pageSize = 5;
 
-            //Variable que llama e efcore 
-            var ingresos = await _context.Ingresos.ToListAsync();
+            // Query base
+            var query = _context.Ingresos.AsQueryable();
 
-            //Mapeo de la entidad a dto
+            // Filtro por fecha desde
+            if (fromDate.HasValue)
+            {
+                query = query.Where(i => i.Fecha >= fromDate.Value);
+            }
+
+            // Filtro por fecha hasta
+            if (toDate.HasValue)
+            {
+                query = query.Where(i => i.Fecha <= toDate.Value);
+            }
+
+            // Total antes de paginar
+            var totalItems = await query.CountAsync();
+
+            // Paginación
+            var ingresos = await query
+                .OrderByDescending(i => i.Fecha)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            // Mapeo
             var ingresosDto = _mapper.Map<IEnumerable<IngresoDto>>(ingresos);
 
-            //retorno de la lista mapeada
-            return ingresosDto;
+            // Resultado paginado
+            return new PagedResultDto<IngresoDto>
+            {
+                Items = ingresosDto,
+                Page = page,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize)
+            };
         }
-
         public async Task<IngresoDto?> GetByIdAsync(int id)
         {
             //Busqueda del ingreso por id

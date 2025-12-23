@@ -19,12 +19,18 @@ namespace Gcr.Construccion.API.Controllers
 
         // para obtener todos los ingresos peticion: GET api/ingreso
         [HttpGet]
-
-        public async Task<IActionResult> GetIngresos()
+        public async Task<IActionResult> GetAll(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 5,
+            [FromQuery] DateTime? fromDate = null,
+            [FromQuery] DateTime? toDate = null
+        )
         {
-            var ingresos = await _ingresoService.GetAllAsync();
+            var result = await _ingresoService.GetAllAsync(
+                page, pageSize, fromDate, toDate
+            );
 
-            return Ok(ingresos);
+            return Ok(result);
         }
 
         // para obtener un ingreso por id peticion: GET api/ingreso/{id}

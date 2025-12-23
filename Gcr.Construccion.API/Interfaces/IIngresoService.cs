@@ -5,7 +5,12 @@ namespace Gcr.Construccion.API.Interfaces
     public interface IIngresoService
     {
         //para listar los ingresos
-        Task<IEnumerable<IngresoDto>> GetAllAsync();
+        Task<PagedResultDto<IngresoDto>> GetAllAsync(
+            int page,
+            int pageSize,
+            DateTime? fromDate,
+            DateTime? toDate
+        );
 
         //para obtener uno por id
         Task<IngresoDto?> GetByIdAsync(int id);
