@@ -25,6 +25,7 @@ builder.Services.AddAutoMapper(typeof(ProveedorProfile));
 // Inyección de dependencias de los servicios
 builder.Services.AddScoped<IIngresoService, IngresoService>();
 builder.Services.AddScoped<IProveedorService, ProveedorService>();
+builder.Services.AddScoped<ICategoriaMaterialService, CategoriaMaterialService>();
 
 // Registrar controladores
 builder.Services.AddControllers();

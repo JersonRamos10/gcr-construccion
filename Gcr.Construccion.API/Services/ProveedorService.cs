@@ -41,7 +41,7 @@ namespace Gcr.Construccion.API.Services
         public async Task<bool> DeleteAsync(int id)
         {
 
-            //Busqueda del ingreso por id
+            //Busqueda del proveedor por id
             var proveedor = await _context.Proveedores.FindAsync(id);
 
             if (proveedor == null)
@@ -49,7 +49,7 @@ namespace Gcr.Construccion.API.Services
                 return false;
             }
 
-            //Eliminacion del ingreso
+            //Eliminacion del proovedordotne
             _context.Proveedores.Remove(proveedor);
             await _context.SaveChangesAsync();
 

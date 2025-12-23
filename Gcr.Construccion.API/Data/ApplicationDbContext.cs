@@ -12,7 +12,7 @@ namespace Gcr.Construccion.API.Data
         }
 
         public DbSet<Ingreso> Ingresos { get; set; }
-        public DbSet<CategoriaMaterial> categorias { get; set; }
+        public DbSet<CategoriaMaterial> Categorias { get; set; }
 
         public DbSet<CompraMaterial> Compras { get; set; }
         
