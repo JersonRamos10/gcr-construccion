@@ -10,7 +10,7 @@ namespace Gcr.Construccion.API.Controllers
     [Route("api/[controller]")]
     public class ProveedorController : ControllerBase
     {
-         //inyeccion de dependencias del servicio
+        //inyeccion de dependencias del servicio
         private readonly IProveedorService _proveedorService;
 
         //constructor que recibe las dependencias inyectadas
@@ -33,7 +33,7 @@ namespace Gcr.Construccion.API.Controllers
             if (proveedor == null) return NotFound();
             return Ok(proveedor);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> CreateProveedor([FromBody] ProveedorCreateDto dto)
         {

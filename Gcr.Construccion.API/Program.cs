@@ -31,6 +31,9 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+//Middleware
+
+
 // Configuración del pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
