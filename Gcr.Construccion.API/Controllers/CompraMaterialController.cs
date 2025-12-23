@@ -18,10 +18,16 @@ namespace Gcr.Construccion.API.Controllers
 
         // GET: api/CompraMaterial
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll( [FromQuery] int page = 1,[FromQuery] int pageSize = 5, [FromQuery] string? search = null,
+            [FromQuery] DateTime? fromDate = null,
+            [FromQuery] DateTime? toDate = null
+        )
         {
-            var compras = await _service.GetAllAsync();
-            return Ok(compras);
+            var result = await _service.GetAllAsync(
+                page, pageSize, search, fromDate, toDate
+            );
+
+            return Ok(result);
         }
 
         // GET: api/CompraMaterial/{id}
@@ -43,6 +49,18 @@ namespace Gcr.Construccion.API.Controllers
             var compra = await _service.CreateAsync(dto);
 
             return CreatedAtAction(nameof(GetById), new { id = compra.Id }, compra);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update(int id,[FromBody] CompraMaterialUpdateDto dto
+        )
+        {
+            var actualizado = await _service.UpdateAsync(id, dto);
+
+            if (!actualizado)
+                return NotFound();
+
+            return NoContent();
         }
 
         // DELETE: api/CompraMaterial/{id}

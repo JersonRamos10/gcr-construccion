@@ -1,6 +1,6 @@
-namespace Gcr.Construccion.API.DTOs
+namespace  Gcr.Construccion.API.DTOs
 {
-    public class CompraMaterialCreateDto
+    public class CompraMaterialUpdateDto
     {
         public string Nombre { get; set; } = string.Empty;
         public int Cantidad { get; set; }
@@ -10,6 +10,4 @@ namespace Gcr.Construccion.API.DTOs
         public int ProveedorId { get; set; }
         public int CategoriaMaterialId { get; set; }
     }
-
-
 }

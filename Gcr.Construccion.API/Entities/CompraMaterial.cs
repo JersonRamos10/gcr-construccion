@@ -5,7 +5,7 @@ namespace Gcr.Construccion.API.Entities
     {
         public int Id { get; set; }
 
-        public string Nombre { get; set; } = null!;
+        public string? Nombre { get; set; }  
 
         public decimal PrecioUnitario { get; set; }
 
@@ -16,9 +16,9 @@ namespace Gcr.Construccion.API.Entities
         public decimal MontoTotal { get; set; }
 
         //clave foreanea hace la relacion entre tablas
-        public int CategoriaId { get; set; }
+        public int CategoriaMaterialId { get; set; }
 
-        public CategoriaMaterial Categoria { get; set; } = null!;
+        public CategoriaMaterial? CategoriaMaterial { get; set; } 
 
         public int ProveedorId { get; set; }
 

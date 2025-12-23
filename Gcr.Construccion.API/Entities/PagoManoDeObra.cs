@@ -13,6 +13,6 @@ namespace Gcr.Construccion.API.Entities
 
         public int EmpleadoId { get; set; }
 
-        public Empleado Empleado { get; set; } 
+        public Empleado? Empleado { get; set; } 
     }
 }

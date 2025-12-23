@@ -4,6 +4,7 @@ using Gcr.Construccion.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gcr.Construccion.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251223191941_UpdateCompraMaterial")]
+    partial class UpdateCompraMaterial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,6 +34,7 @@ namespace Gcr.Construccion.API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -49,7 +53,7 @@ namespace Gcr.Construccion.API.Migrations
                     b.Property<int>("Cantidad")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoriaMaterialId")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaCompra")
@@ -69,7 +73,7 @@ namespace Gcr.Construccion.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaMaterialId");
+                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("ProveedorId");
 
@@ -172,9 +176,9 @@ namespace Gcr.Construccion.API.Migrations
 
             modelBuilder.Entity("Gcr.Construccion.API.Entities.CompraMaterial", b =>
                 {
-                    b.HasOne("Gcr.Construccion.API.Entities.CategoriaMaterial", "CategoriaMaterial")
+                    b.HasOne("Gcr.Construccion.API.Entities.CategoriaMaterial", "Categoria")
                         .WithMany("CompraMateriales")
-                        .HasForeignKey("CategoriaMaterialId")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -184,7 +188,7 @@ namespace Gcr.Construccion.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CategoriaMaterial");
+                    b.Navigation("Categoria");
 
                     b.Navigation("Proveedor");
                 });
