@@ -19,11 +19,9 @@ namespace Gcr.Construccion.API.Controllers
 
         // para obtener todos los ingresos peticion: GET api/ingreso
         [HttpGet]
-        public async Task<IActionResult> GetAll(
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 5,
-            [FromQuery] DateTime? fromDate = null,
-            [FromQuery] DateTime? toDate = null
+        public async Task<IActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 5,
+                                                [FromQuery] DateTime? fromDate = null,
+                                                [FromQuery] DateTime? toDate = null
         )
         {
             var result = await _ingresoService.GetAllAsync(

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Gcr.Construccion.API.Interfaces;
 using Gcr.Construccion.API.Services;
 using grc.Construccion.API.Mappings;
+using Gcr.Construccion.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,9 +30,12 @@ builder.Services.AddScoped<ICategoriaMaterialService, CategoriaMaterialService>(
 builder.Services.AddScoped<ICompraMaterialService, CompraMaterialService>();
 builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 builder.Services.AddScoped<IPagoManoDeObraService, PagoManoDeObraService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+
 
 // Registrar controladores
 builder.Services.AddControllers();
+
 
 var app = builder.Build();
 
@@ -45,8 +49,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection();
-
+app.UseHttpsRedirection();
+app.UseCors("FrontendPolicy");
+app.UseMiddleware<ExceptionMiddleware>();
 app.MapControllers();
 
 app.Run();

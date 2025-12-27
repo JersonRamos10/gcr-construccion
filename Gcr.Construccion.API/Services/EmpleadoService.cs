@@ -21,9 +21,8 @@ namespace Gcr.Construccion.API.Services
         // Obtener todos los empleados
         public async Task<IEnumerable<EmpleadoDto>> GetAllAsync()
         {
-            var empleados = await _context.Empleados
-                .OrderBy(e => e.NombreCompleto)
-                .ToListAsync();
+            var empleados = await _context.Empleados.OrderBy(e => e.NombreCompleto)
+                                                    .ToListAsync();
 
             return _mapper.Map<IEnumerable<EmpleadoDto>>(empleados);
         }
@@ -42,7 +41,7 @@ namespace Gcr.Construccion.API.Services
         // Crear empleado
         public async Task<EmpleadoDto> CreateAsync(EmpleadoCreateDto dto)
         {
-            // Validaciones básicas
+            //Todo: Validaciones basicas
             if (string.IsNullOrWhiteSpace(dto.NombreCompleto))
                 throw new ArgumentException("El nombre del empleado es obligatorio.");
 
