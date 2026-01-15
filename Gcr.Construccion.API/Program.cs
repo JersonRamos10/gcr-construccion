@@ -48,7 +48,34 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+// Inicio de migracion automatica
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
 
+        // Aplica migraciones pendientes
+        context.Database.Migrate();
+
+        Console.WriteLine("Base de datos migrada correctamente.");
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocurrió un error al migrar la base de datos.");
+    }
+}
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+// ... resto del código ...
 
 
 //Middleware
