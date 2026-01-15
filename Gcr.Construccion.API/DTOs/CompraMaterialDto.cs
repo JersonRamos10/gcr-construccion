@@ -8,6 +8,7 @@ namespace Gcr.Construccion.API.DTOs
         public decimal PrecioUnitario { get; set; }
         public decimal MontoTotal { get; set; }
         public DateTime FechaCompra { get; set; }
+        public string? Medida { get; set; }
 
         public string ProveedorNombre { get; set; } = string.Empty;
         public string CategoriaNombre { get; set; } = string.Empty;

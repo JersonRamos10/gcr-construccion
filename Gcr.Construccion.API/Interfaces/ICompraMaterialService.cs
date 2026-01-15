@@ -12,6 +12,7 @@ namespace Gcr.Construccion.API.Interfaces
             DateTime? toDate
         );
         Task<CompraMaterialDto?> GetByIdAsync(int id);
+        Task<CompraMaterialDto?> GetByNameAsync(string nombre);
         Task<CompraMaterialDto> CreateAsync(CompraMaterialCreateDto dto);
 
         Task<bool> UpdateAsync(int id, CompraMaterialUpdateDto dto);

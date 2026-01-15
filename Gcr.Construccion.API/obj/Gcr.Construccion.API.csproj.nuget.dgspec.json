@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\gcr-construccion\\Gcr.Construccion.API\\Gcr.Construccion.API.csproj",
         "projectName": "Gcr.Construccion.API",
         "projectPath": "C:\\gcr-construccion\\Gcr.Construccion.API\\Gcr.Construccion.API.csproj",
-        "packagesPath": "C:\\Users\\MY PC\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\jerso\\.nuget\\packages\\",
         "outputPath": "C:\\gcr-construccion\\Gcr.Construccion.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MY PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jerso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

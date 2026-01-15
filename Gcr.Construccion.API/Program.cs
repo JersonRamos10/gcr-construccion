@@ -31,13 +31,25 @@ builder.Services.AddScoped<ICompraMaterialService, CompraMaterialService>();
 builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 builder.Services.AddScoped<IPagoManoDeObraService, PagoManoDeObraService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 // Registrar controladores
 builder.Services.AddControllers();
 
 
 var app = builder.Build();
+
+
+
 
 //Middleware
 
@@ -51,6 +63,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("FrontendPolicy");
+
 app.UseMiddleware<ExceptionMiddleware>();
 app.MapControllers();
 

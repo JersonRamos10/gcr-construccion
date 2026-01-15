@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gcr.Construccion.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bce90d4e2e64ede91daaba33808e5f7793000e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4dc5ecc3197983ce07c6d7ab7937400fce35fd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gcr.Construccion.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gcr.Construccion.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
